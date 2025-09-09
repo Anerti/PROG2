@@ -17,7 +17,7 @@ public class TravailleurPrestataire extends Travailleur {
     }
 
     public double calculNombreJr(Instant startDate, Instant endDate) {
-        return (double) (endDate.toEpochMilli() - endDate.toEpochMilli()) / (1000 * 3600 * 24);
+        return (double) (endDate.toEpochMilli() - startDate.toEpochMilli()) / (1000 * 3600 * 24);
     }
 
     public double calculSalaire(Instant startDate, Instant endDate, double tauxJournalier) {
