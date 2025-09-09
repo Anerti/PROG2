@@ -27,6 +27,9 @@ public class TravailleurPrestataire extends Travailleur {
     }
 
     public double calculSalaire(Instant startDate, Instant endDate, double tauxJournalier) {
+        if (endDate.isBefore(startDate)) {
+            throw new IllegalArgumentException("end date is smaller than start date");
+        }
         return (double) (endDate.toEpochMilli() - startDate.toEpochMilli()) / (1000 * 3600 * 24) * tauxJournalier;
     }
 }
