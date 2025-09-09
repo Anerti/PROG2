@@ -17,6 +17,12 @@ public class TravailleurPrestataire extends Travailleur {
     }
 
     public double calculNombreJr(Instant startDate, Instant endDate) {
+        if (endDate.isBefore(startDate)) {
+            throw new IllegalArgumentException("end date is smaller than start date");
+        }
+        if (endDate == null){
+            return (double) (endDate.toEpochMilli() - Instant.now().toEpochMilli()) / (1000 * 3600 * 24);
+        }
         return (double) (endDate.toEpochMilli() - startDate.toEpochMilli()) / (1000 * 3600 * 24);
     }
 
